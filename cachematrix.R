@@ -30,6 +30,6 @@ cacheSolve<-function(a,...)
   storage<-a$get()
   b<-solve(storage,...)
   a$setinv(b)
-  inv
+  b
 }
 ## This Returns the matrix that is the inverse of the matrix stored in a
