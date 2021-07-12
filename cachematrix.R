@@ -24,7 +24,7 @@ cacheSolve<-function(a,...)
   b<-a$getinv()
   if(!is.null(b)) 
   {
-    message("cached data being retrieved from inverse matrix")
+    message("cached data being retrieved from inversed matrix")
     return(b)
   }
   storage<-a$get()
