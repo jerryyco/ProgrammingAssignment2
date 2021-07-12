@@ -1,31 +1,35 @@
-##x serves as an input forthe matrix function
-##inv is solved converts into null
-makeCacheMatrix <- function(x = matrix()) 
-  {
-  inv <- NULL
-  set <- function(y) 
-  {
-    x <<- y
-    inv <<- NULL
-  }
-  get <- function() x
-  setinv <- function(mean) inv <<- inverse(x)
-  getinv <- function() inv
-  list(set = set, get = get, setinv = setinv, getinv = getinv)
-  }
+## a serves as an input forthe matrix function
+## any matrix that is input to a can be reset
+## b is solved converts into null
 
-## Same concept would apply for the cached data
-cacheSolve <- function(x, ...) 
+makeCacheMatrix<-function(a = matrix()) 
+{
+  b<-NULL
+  set<-function(y) 
   {
-  inv <- x$getinv()
-  if(!is.null(inv)) 
-    {
-    message("getting cached data for inversed matrix")
-    return(inv)
+    a<<-y
+    b<<-NULL
   }
-  storage <- x$get()
-  inv <- solve(storage, ...)
-  x$setinv(inv)
+  get<-function() a
+  setinv<-function(mean) b<<-inv
+  getinv<-function() b
+  list(set = set, get = get, 
+       setinv = setinv, getinv = getinv)
+}
+
+## The same concept would apply for the cached data
+## Input is then cached to create an inversed matrix
+cacheSolve<-function(a,...) 
+{
+  b<-a$getinv()
+  if(!is.null(b)) 
+  {
+    message("cached data being retrieved from inverse matrix")
+    return(b)
+  }
+  storage<-a$get()
+  b<-solve(storage,...)
+  a$setinv(b)
   inv
-  }
-##Return a matrix that is the inverse of the matrix stored in x
+}
+## This Returns the matrix that is the inverse of the matrix stored in a
