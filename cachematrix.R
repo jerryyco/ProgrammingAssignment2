@@ -1,4 +1,4 @@
-## a serves as an input forthe matrix function
+## having the setmean as an example to create this function, a serves as an input forthe matrix function
 ## any matrix that is input to a can be reset
 ## b is solved converts into null
 
