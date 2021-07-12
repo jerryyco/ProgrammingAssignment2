@@ -1,5 +1,5 @@
-## x serves as an input forthe matrix function
-## inv is solved converts into null
+##x serves as an input forthe matrix function
+##inv is solved converts into null
 makeCacheMatrix <- function(x = matrix()) 
   {
   inv <- NULL
@@ -28,4 +28,4 @@ cacheSolve <- function(x, ...)
   x$setinv(inv)
   inv
   }
-## Return a matrix that is the inverse of the matrix stored in x
+##Return a matrix that is the inverse of the matrix stored in x
