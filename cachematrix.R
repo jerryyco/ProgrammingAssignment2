@@ -1,30 +1,33 @@
-## Submission for Programming Assignment 2: Lexical Scoping in Coursera (R Programming)
-## having the setmean as an example provided to create this function, 'a' serves as an input forthe matrix function
+## With setmean as an example provided to create the function, 'a' serves as input for the matrix function
 ## any matrix that is input to 'a' can be reset
 ## 'b' is solved converts into null
+
 ## any function that can create a matrix could be used as long as it is represented in a variable
 
-## I have used rstudio to create the function
 
 makeCacheMatrix<-function(a = matrix()) #any variable could be represented as the input matrix
   
 {
   
   
-  #for my script, 'a' would be the input matrix
-  #the variable 'b' would be set to null
+  #for my script, I have used 'a' as the input matrix
+  #I used 'b' as null
+  #as said earlier, it could be any variable that can be assigned
 
   b<-NULL
   set<-function(y) 
+  
   a<<-y
   b<<-NULL
     
+  
 }
 
 
 get<-function() a
 setinv<-function(inverse) b<<-inv
 getinv<-function() b
+
 
 #by typing get, matrix represented in 'a' would be displayed
 #setinv would have the ability to create the matrix 'a' into an inverse matrix which is 'b'
@@ -35,8 +38,9 @@ getinv<-function() b
 list(set = set, get = get, 
      setinv = setinv, getinv = getinv)
 
-#these are the lists available to set and get the matrix and its inverse
 
+#these are the lists available to set and get the matrix and its inverse
+#the lists are set, setinv, and getinv
 
 
 ## The next step would be to create the cachesolve function
@@ -47,28 +51,31 @@ list(set = set, get = get,
 cacheSolve<-function(a,...) 
   
 {
-  
+
+
   b<-a$getinv()
   if(!is.null(b))
     
-    #this code shows if the function of inverse is null
+    #this code shows if the function of inverse is null, and if it is, the if statement would apply
+
     
   {
+    
     
     message("cached data being retrieved from inversed matrix")
     return(b)
     
-    #this statement would have the ability to return the input matrix
+    #I used this statement to have the ability to return the input matrix
+    
     
   }
   
   matrix<-a$get()
   b<-solve(matrix,...)
   a$setinv(b)
-  b
+  b  #This Returns the matrix that is the inverse of the matrix stored in 'a'
+
   
 }
 
-
-## This Returns the matrix that is the inverse of the matrix stored in 'a'
-## End of Programming Assingment 2: Lexical Scoping
+## End of Submission
